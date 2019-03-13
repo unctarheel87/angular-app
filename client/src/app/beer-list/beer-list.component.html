@@ -1,0 +1,36 @@
+<section>
+  <div>
+    <h1 class="uk-text-center uk-margin-medium">Beer Database</h1>
+    <app-beer></app-beer>
+    <table class="uk-table uk-table-small uk-table-divider"> 
+      <thead>
+        <tr>
+          <th>Brewery Name</th>
+          <th>Beer Name</th>
+          <th>Beer Style</th>
+          <th>ABV</th>
+          <th>IBU</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let beer of beers" 
+            [class.green]="beer.currentDraft"
+        >
+            <td>{{ beer["Brewery Name"] }}</td>
+            <td>{{ beer["Beer Name"] }}</td>
+            <td>{{ beer["Beer Style"] }}</td>
+            <td>{{ beer["ABV"] }}</td>
+            <td>{{ beer["IBU"] }}</td>
+            <td><i 
+              class="material-icons"
+              (click)="removeBeer(beer._id, beer.currentDraft)" 
+              >remove_circle</i></td>
+            <td><i 
+              class="material-icons"
+              (click)="updateBeer(beer._id, beer.currentDraft)"
+              >check_circle</i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
